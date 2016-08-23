@@ -1,0 +1,22 @@
+<%@ Language=VBScript %>
+<% Option Explicit %>
+<%
+Dim sha1
+set sha1 =  GetObject("sha1.wsc"))
+    ' set a property
+    sha1.hexcase = 1
+Dim result
+    ' call a function
+    result = sha1.hex_hmac_sha1("0x0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b", "Hi There")
+ %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>test</title>
+</head>
+<body>
+            HMAC-SHA1 result: <%= result %>
+</body>
+</html>
+<% Set sha1 = Nothing %>

@@ -1,0 +1,1 @@
+select EUROSTAT.google_analytics_oauth2_auth from dual;

@@ -1,0 +1,18 @@
+/* Formatted on 05/08/2012 23:25:00 (QP5 v5.139.911.3011) */
+BEGIN
+   --DBMS_NETWORK_ACL_ADMIN.DROP_ACL(ACL=> 'chart_apis_google_com.xml');
+   COMMIT;
+   DBMS_NETWORK_ACL_ADMIN.CREATE_ACL (ACL           => 'sso_harvest.xml',
+                                      DESCRIPTION   => 'ACL para harvest',
+                                      PRINCIPAL     => 'SSO',
+                                      IS_GRANT      => TRUE,
+                                      PRIVILEGE     => 'connect',
+                                      --START_DATE    => SYSTIMESTAMP,
+                                      END_DATE      => NULL);
+   COMMIT;
+   --DBMS_NETWORK_ACL_ADMIN.ADD_PRIVILEGE (ACL => 'chart_apis_google_com.xml', PRINCIPAL => 'SYSMAN', IS_GRANT => TRUE, PRIVILEGE => 'connect', POSITION => NULL, START_DATE => SYSTIMESTAMP, END_DATE => NULL);
+   COMMIT;
+   DBMS_NETWORK_ACL_ADMIN.ASSIGN_ACL (ACL => 'sso_harvest.xml', HOST => '*.harvestapp.com');
+   --DBMS_NETWORK_ACL_ADMIN.ASSIGN_ACL(ACL=> 'chart_apis_google_com.xml', HOST => 'proxy02.sas.junta-andalucia.es');
+   COMMIT;
+END;

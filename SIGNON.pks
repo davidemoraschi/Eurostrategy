@@ -1,0 +1,12 @@
+CREATE OR REPLACE PACKAGE SSO.signon
+IS
+   PROCEDURE jsp (originalurl IN VARCHAR2, errorcode IN VARCHAR2 DEFAULT NULL, errormessage IN VARCHAR2 DEFAULT NULL);
+
+   PROCEDURE jsp_old (originalurl IN VARCHAR2, errorcode IN VARCHAR2 DEFAULT NULL, errormessage IN VARCHAR2 DEFAULT NULL);
+
+   PROCEDURE xml (token IN VARCHAR2);
+
+   PROCEDURE css;
+END;
+/
+
